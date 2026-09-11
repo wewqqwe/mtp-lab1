@@ -47,12 +47,14 @@ python main.py data/sample.txt 6     # свой файл и число слов
 Строк: 5
 Непустых строк: 5
 Доля уникальных слов: 0.9231
-Самые частые слова:
-  проекта        3
-  версии         2
-  git            1
-  вернуться      1
-  версий         1
+
+Слово               Раз    Доля  
+--------------------------------------------------------
+проекта               3    8.8%  ########################
+версии                2    5.9%  ################
+git                   1    2.9%  ########
+вернуться             1    2.9%  ########
+версий                1    2.9%  ########
 ```
 
 После слияния ветки `feature/report-table` результат выводится таблицей:
@@ -105,9 +107,9 @@ git merge --no-ff feature/word-frequency -m "merge: влить feature/word-freq
 Доказательство — merge-коммит с двумя родителями:
 
 ```
-4b866ce merge: влить feature/word-frequency в main
+814a47f Merge pull request #1 from wewqqwe/feature/report-table
 
-Родители: 2fb6a2b 3eadc19
+Родители: 5d83080 fb8f093
 ```
 
 ## Задание средней сложности №9: отправить изменения на GitHub
@@ -161,11 +163,15 @@ gh release create v1.0.0 --title "v1.0.0" --notes "..."
 ## История коммитов
 
 ```
-* fb8f093 (feature/report-table) feat: выводить таблицу частот вместо простого списка
-* 18ccb78 feat: добавить табличный отчёт по частотам слов
-*   4b866ce (HEAD -> main) merge: влить feature/word-frequency в main
+*   814a47f (HEAD -> main, tag: v1.0.0, origin/main, origin/HEAD) Merge pull request #1 from wewqqwe/feature/report-table
 |\  
-| * 3eadc19 (feature/word-frequency) feat: показывать самые частые слова в сводке
+* | 5d83080 docs: описать выполнение заданий варианта 3 в README
+| * fb8f093 (origin/feature/report-table, feature/report-table) feat: выводить таблицу частот вместо простого списка
+| * 18ccb78 feat: добавить табличный отчёт по частотам слов
+|/  
+*   4b866ce merge: влить feature/word-frequency в main
+|\  
+| * 3eadc19 (origin/feature/word-frequency, feature/word-frequency) feat: показывать самые частые слова в сводке
 | * 78075b3 feat: добавить частотный анализ слов
 |/  
 * 2fb6a2b feat: выводить сводку по текстовому файлу
