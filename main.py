@@ -1,4 +1,4 @@
-"""Точка входа: сводка и частотный список слов текстового файла.
+"""Точка входа: сводка, частотный список и таблица-отчёт.
 
 Запуск:
     python main.py [путь к файлу] [сколько слов показать]
@@ -9,7 +9,8 @@
 
 import sys
 
-from frequency import most_common, unique_ratio
+from frequency import unique_ratio
+from report import render
 from text_loader import TextNotFoundError, describe, load_text
 
 #: файл, который берётся, когда путь не указан явно
@@ -38,7 +39,7 @@ def read_limit(argv):
 
 
 def main(argv):
-    """Показать сводку и частотный список слов.
+    """Показать сводку и таблицу частот слов.
 
     :param argv: аргументы командной строки без имени программы
     :return: код возврата процесса
@@ -58,10 +59,8 @@ def main(argv):
     print("Строк: %d" % summary["lines"])
     print("Непустых строк: %d" % summary["filled_lines"])
     print("Доля уникальных слов: %s" % unique_ratio(text))
-
-    print("Самые частые слова:")
-    for word, count in most_common(text, limit):
-        print("  %-14s %d" % (word, count))
+    print()
+    print(render(text, limit))
     return 0
 
 
